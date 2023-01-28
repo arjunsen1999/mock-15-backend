@@ -20,6 +20,15 @@ authRouter.get("/get/:name", async (req, res) =>{
     } catch (error) {
         res.send({msg : "Somthing Went Wrong", error})
     }
+});
+
+authRouter.get("/getall", async (req, res) =>{
+    try {
+        let user = await AuthModel.find();
+        res.send(user)
+    } catch (error) {
+        res.send({msg : "Somthing Went Wrong", error})
+    }
 })
 
 module.exports = {authRouter};
