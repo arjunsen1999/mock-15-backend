@@ -12,7 +12,7 @@ authRouter.post("/add", async(req, res) =>{
     }
 })
 
-authRouter.get("/get/:name", VerifyToken, async (req, res) =>{
+authRouter.get("/get/:name", async (req, res) =>{
     try {
         let id = req.authId;
         res.send(id)
