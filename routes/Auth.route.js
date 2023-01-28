@@ -14,8 +14,9 @@ authRouter.post("/add", async(req, res) =>{
 
 authRouter.get("/get/:name", async (req, res) =>{
     try {
-        let id = req.authId;
-        res.send(id)
+        let name = req.params.name;
+        let user = await AuthModel.findOne({name});
+        res.send(user)
     } catch (error) {
         res.send({msg : "Somthing Went Wrong", error})
     }
